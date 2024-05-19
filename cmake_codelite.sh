@@ -1,0 +1,31 @@
+build_configuration="Debug"
+test='False'
+
+while test $# -gt 0; do
+           case "$1" in
+                -c)
+                    shift
+                    build_configuration=$1
+                    shift
+                    ;;
+                -t)
+                    shift
+                    test="True"
+                    shift
+                    ;;
+                *)
+                   echo "$1 is not a recognized flag!"
+                   exit 1;
+                   ;;
+          esac
+  done
+
+#while getopts "c:t:": flag
+#do
+#    case "${flag}" in
+#		c) build_configuration=${OPTARG};;
+#		t) test='True';;
+#    esac
+#done
+
+cmake -B "./build" -G "CodeLite - Unix Makefiles" -DCMAKE_BUILD_TYPE=${build_configuration} -DDARK_TEST_ENABLE=${test}
