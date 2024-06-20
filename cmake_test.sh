@@ -8,7 +8,7 @@ while test $# -gt 0; do
                     shift
                     ;;
                 *)
-                   echo "$1 is not a recognized flag!"
+                   echo "$1 is not a recognized flag"
                    exit 1;
                    ;;
           esac
