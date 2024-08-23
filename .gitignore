@@ -1,1 +1,5 @@
+.directory
+.kdev4
 build*
+
+sandbox.kdev4
