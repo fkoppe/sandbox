@@ -19,18 +19,6 @@ int main()
 {
     Dark_Allocator* const allocator = dark_os_allocator_new();
 
-
-
-
-
-
-
-
-
-
-
-
-
     Dark_Mutex* mutex = dark_mutex_new(allocator);
 
     Dark_Ostream_Settings ostream_settings;
@@ -40,7 +28,7 @@ int main()
     ostream_settings.buffer_size = 10000;
     ostream_settings.auto_flush_ns = dark_duration_s_to_ns(2);
 
-    Dark_Ostream* const file_stream = dark_ostream_new_file(allocator, ostream_settings, "log.txt", NULL);
+    Dark_Ostream* const file_stream = dark_ostream_new_file(allocator, ostream_settings, dark_cstring_to_cbuffer_view("log.txt"), NULL);
     Dark_Ostream* const ostream = dark_ostream_new_stdout(allocator, ostream_settings, NULL);
 
     Dark_Logger_Settings logger_settings;
@@ -49,9 +37,6 @@ int main()
     logger_settings.update_is = false;
 
     Dark_Logger* const logger = dark_logger_new(allocator, logger_settings);
-    Dark_Logger* const logger2 = dark_logger_new(allocator, logger_settings);
-    Dark_Logger* const logger3 = dark_logger_new(allocator, logger_settings);
-    Dark_Logger* const logger4 = dark_logger_new(allocator, logger_settings);
 
     Dark_Logger_Ostream_Settings logger_ostream_settings;
     logger_ostream_settings.color_is = true;
@@ -64,65 +49,84 @@ int main()
     logger_ostream_settings.format.unit_is = true;
 
     dark_logger_ostream_add(logger, logger_ostream_settings, ostream, NULL);
-    dark_logger_ostream_add(logger2, logger_ostream_settings, ostream, NULL);
-    dark_logger_ostream_add(logger3, logger_ostream_settings, ostream, NULL);
-    dark_logger_ostream_add(logger4, logger_ostream_settings, ostream, NULL);
 
-    //logger_ostream_settings.color_is = false;
+    logger_ostream_settings.color_is = false;
     dark_logger_ostream_add(logger, logger_ostream_settings, file_stream, NULL);
 
-    DARK_PLOG_CSTRING(logger, DARK_LOG_LEVEL_TRACE, "a test log message of some sort");
-    DARK_DLOG_CSTRING(logger, DARK_LOG_LEVEL_COMMENT, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger, DARK_LOG_LEVEL_DEBUG, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger, DARK_LOG_LEVEL_NOTE, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger, DARK_LOG_LEVEL_INFO, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger, DARK_LOG_LEVEL_NOTICE, "a test log message of some sort");
-    DARK_DLOG_CSTRING(logger, DARK_LOG_LEVEL_WARN, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger, DARK_LOG_LEVEL_ERROR, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger, DARK_LOG_LEVEL_CRITICAL, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger, DARK_LOG_LEVEL_ALERT, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger, DARK_LOG_LEVEL_EMERGENCY, "a test log message of some sort");
+    Dark_Entropy entropy_pool = dark_entropy_seed();
 
-    DARK_LOG_CSTRING(logger2, DARK_LOG_LEVEL_TRACE, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger2, DARK_LOG_LEVEL_COMMENT, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger2, DARK_LOG_LEVEL_DEBUG, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger2, DARK_LOG_LEVEL_NOTE, "a test log message of some sort");
-    DARK_PLOG_CSTRING(logger2, DARK_LOG_LEVEL_INFO, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger2, DARK_LOG_LEVEL_NOTICE, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger2, DARK_LOG_LEVEL_WARN, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger2, DARK_LOG_LEVEL_ERROR, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger2, DARK_LOG_LEVEL_CRITICAL, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger2, DARK_LOG_LEVEL_ALERT, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger2, DARK_LOG_LEVEL_EMERGENCY, "a test log message of some sort");
+    Dark_Event_Handler* const event_handler = dark_event_handler_new(allocator, logger);;
 
-    DARK_LOG_CSTRING(logger3, DARK_LOG_LEVEL_TRACE, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger3, DARK_LOG_LEVEL_COMMENT, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger3, DARK_LOG_LEVEL_DEBUG, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger3, DARK_LOG_LEVEL_NOTE, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger3, DARK_LOG_LEVEL_INFO, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger3, DARK_LOG_LEVEL_NOTICE, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger3, DARK_LOG_LEVEL_WARN, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger3, DARK_LOG_LEVEL_ERROR, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger3, DARK_LOG_LEVEL_CRITICAL, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger3, DARK_LOG_LEVEL_ALERT, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger3, DARK_LOG_LEVEL_EMERGENCY, "a test log message of some sort");
+    Dark_Window_Settings window_settings;
+    window_settings.title = dark_cstring_to_cbuffer_view("test window");
+    window_settings.width = 1920;
+    window_settings.height = 1080;
 
-    DARK_LOG_CSTRING(logger4, DARK_LOG_LEVEL_TRACE, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger4, DARK_LOG_LEVEL_COMMENT, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger4, DARK_LOG_LEVEL_DEBUG, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger4, DARK_LOG_LEVEL_NOTE, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger4, DARK_LOG_LEVEL_INFO, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger4, DARK_LOG_LEVEL_NOTICE, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger4, DARK_LOG_LEVEL_WARN, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger4, DARK_LOG_LEVEL_ERROR, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger4, DARK_LOG_LEVEL_CRITICAL, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger4, DARK_LOG_LEVEL_ALERT, "a test log message of some sort");
-    DARK_LOG_CSTRING(logger4, DARK_LOG_LEVEL_EMERGENCY, "a test log message of some sort");
+    Dark_Window* const window = dark_window_new(allocator, 0, window_settings, event_handler, logger);
+
+    dark_window_open_windowed(window, true);
+    //dark_window_open_fullscreen(window);
+
+    //-----GAMELOOP-----
+
+    Dark_Stopwatch* const stopwatch = dark_stopwatch_new_start(allocator);
+
+    bool done = false;
+
+    while(dark_stopwatch_s(stopwatch) < 5)
+    {
+        dark_window_update(window);
+
+        if(dark_stopwatch_s(stopwatch) > 1 && !done)
+        {
+            done = true;
+            //dark_window_fullscreen(window);
+        }
+
+        bool processed = false;
+        while(!processed)
+        {
+            Dark_Event* const event = dark_event_handler_next(event_handler);
+
+            if(NULL == event)
+            {
+                processed = true;
+            }
+            else
+            {
+                switch(event->type)
+                {
+                case DARK_EVENT_TYPE_SCROLLED:
+                    break;
+                    //DARK_PRINTF_DEBUG("scrolled %lf-%lf\n", event->data.scroll.x, event->data.scroll.y);
+                case DARK_EVENT_TYPE_CURSOR_MOVED:
+                    break;
+                    //DARK_PRINTF_DEBUG("moved %i-%i\n", event->data.position.x, event->data.position.y);
+                case DARK_EVENT_TYPE_KEY_REPEATED:
+                    int i = event->data.keyboard.key;
+                    DARK_PRINTF_DEBUG("key %i\n", i);
+                    break;
+
+                default:
+                    break;
+                }
+            }
+        }
+
+        dark_ostream_update(ostream);
+    }
+
+    dark_stopwatch_delete(stopwatch);
+
+    //------------------
+
+    dark_window_close(window);
+
+    dark_window_delete(window);
+
+    dark_event_handler_delete(event_handler);
 
     dark_logger_delete(logger);
-    dark_logger_delete(logger2);
-    dark_logger_delete(logger3);
-    dark_logger_delete(logger4);
 
     dark_ostream_delete(ostream);
     dark_ostream_delete(file_stream);
