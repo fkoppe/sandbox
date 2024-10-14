@@ -20,4 +20,4 @@ while test $# -gt 0; do
           esac
   done
 
-cmake -B "./build" -G "CodeLite - Unix Makefiles" -DCMAKE_BUILD_TYPE=${build_configuration} -DDARK_TEST_ENABLE=${test}
+cmake -B "./build" -G "CodeLite - Unix Makefiles" -DCMAKE_BUILD_TYPE=${build_configuration} -DDARK_TEST_ENABLE=${test} -DDEEP_TEST_ENABLE=${test}

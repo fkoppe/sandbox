@@ -1,3 +1,9 @@
 [submodule "library/darkstar"]
 	path = library/darkstar
 	url = https://github.com/fkoppe/darkstar.git
+[submodule "library/fluxlite"]
+	path = library/fluxlite
+	url = https://github.com/fkoppe/fluxlite.git
+[submodule "library/deepnova"]
+	path = library/deepnova
+	url = https://github.com/fkoppe/deepnova.git

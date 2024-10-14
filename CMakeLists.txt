@@ -14,6 +14,7 @@ target_link_libraries(
     sandbox
     PUBLIC
     darkstar
+    deepnova
 )
 
 add_subdirectory(library)
