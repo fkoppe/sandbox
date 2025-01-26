@@ -3,3 +3,4 @@
 build*
 
 sandbox.kdev4
+CMakeLists.txt.user
