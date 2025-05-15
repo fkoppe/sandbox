@@ -14,5 +14,5 @@ while test $# -gt 0; do
           esac
   done
 
-cd ./build
+cd ./build_cli
 ctest --output-on-failure ${verbose} .

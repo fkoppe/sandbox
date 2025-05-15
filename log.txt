@@ -1,0 +1,66 @@
+[10:01:51][0x7ebd864ed740][deepnova][debug] core: surface: initialise
+[10:01:51][0x7ebd864ed740][deepnova][comment] core: handler: monitor 9609774d-dddb-4389-bb15-23a2f5850a08 connected as HDMI-A-2
+[10:01:51][0x7ebd864ed740][deepnova][comment] core: handler: monitor b8f046e4-63d3-4b82-941f-eabc09230ae1 connected as DP-4
+[10:01:51][0x7ebd864ed740][deepnova][comment] core: handler: monitor 14ddac84-d879-4474-a56f-0c52ee802a7f connected as DP-5
+[10:01:51][0x7ebd864ed740][deepnova][comment] core: handler: monitor 65af3cdb-a57d-4d45-a74a-a07963276566 connected as HDMI-A-1
+[10:01:51][0x7ebd864ed740][deepnova][comment] grafic: window: open windowed (id#0)
+[10:01:56][0x7ebd864ed740][deepnova][debug] core: surface: monitor 9609774d-dddb-4389-bb15-23a2f5850a08 removed
+[10:01:56][0x7ebd864ed740][deepnova][debug] core: surface: monitor b8f046e4-63d3-4b82-941f-eabc09230ae1 removed
+[10:01:56][0x7ebd864ed740][deepnova][debug] core: surface: monitor 14ddac84-d879-4474-a56f-0c52ee802a7f removed
+[10:01:56][0x7ebd864ed740][deepnova][debug] core: surface: monitor 65af3cdb-a57d-4d45-a74a-a07963276566 removed
+[10:01:56][0x7ebd864ed740][deepnova][debug] core: surface: shutdown
+[10:02:10][0x7240d2095740][deepnova][debug] core: surface: initialise
+[10:02:10][0x7240d2095740][deepnova][comment] core: handler: monitor a8b18eb8-8650-4036-8089-e4c02b19f189 connected as HDMI-A-2
+[10:02:10][0x7240d2095740][deepnova][comment] core: handler: monitor 09d1068d-7ffc-4b49-87db-708127b109f3 connected as DP-4
+[10:02:10][0x7240d2095740][deepnova][comment] core: handler: monitor c8cfe7bc-4fca-4875-9c5a-392eb7934222 connected as DP-5
+[10:02:10][0x7240d2095740][deepnova][comment] core: handler: monitor 0dc31727-9d51-4836-a1a5-0c403007891d connected as HDMI-A-1
+[10:02:10][0x7240d2095740][deepnova][comment] grafic: window: open windowed (id#0)
+[10:02:15][0x7240d2095740][deepnova][debug] core: surface: monitor a8b18eb8-8650-4036-8089-e4c02b19f189 removed
+[10:02:15][0x7240d2095740][deepnova][debug] core: surface: monitor 09d1068d-7ffc-4b49-87db-708127b109f3 removed
+[10:02:15][0x7240d2095740][deepnova][debug] core: surface: monitor c8cfe7bc-4fca-4875-9c5a-392eb7934222 removed
+[10:02:15][0x7240d2095740][deepnova][debug] core: surface: monitor 0dc31727-9d51-4836-a1a5-0c403007891d removed
+[10:02:15][0x7240d2095740][deepnova][debug] core: surface: shutdown
+[10:03:05][0x7a70f9411740][deepnova][debug] core: surface: initialise
+[10:03:05][0x7a70f9411740][deepnova][comment] core: handler: monitor a1e22429-0277-4835-aa8e-8794dd1fbcf6 connected as HDMI-A-2
+[10:03:05][0x7a70f9411740][deepnova][comment] core: handler: monitor 1ea9090b-2e13-4f94-b980-9c5554d7d1e5 connected as DP-4
+[10:03:05][0x7a70f9411740][deepnova][comment] core: handler: monitor 6cb3e39e-701b-4581-a7bf-205bb3b732bf connected as DP-5
+[10:03:05][0x7a70f9411740][deepnova][comment] core: handler: monitor b6b5b941-55cd-4dfe-bfd9-05ba91cd7915 connected as HDMI-A-1
+[10:03:05][0x7a70f9411740][deepnova][comment] grafic: window: open windowed (id#0)
+[10:03:10][0x7a70f9411740][deepnova][debug] core: surface: monitor a1e22429-0277-4835-aa8e-8794dd1fbcf6 removed
+[10:03:10][0x7a70f9411740][deepnova][debug] core: surface: monitor 1ea9090b-2e13-4f94-b980-9c5554d7d1e5 removed
+[10:03:10][0x7a70f9411740][deepnova][debug] core: surface: monitor 6cb3e39e-701b-4581-a7bf-205bb3b732bf removed
+[10:03:10][0x7a70f9411740][deepnova][debug] core: surface: monitor b6b5b941-55cd-4dfe-bfd9-05ba91cd7915 removed
+[10:03:10][0x7a70f9411740][deepnova][debug] core: surface: shutdown
+[10:03:47][0x71b1bb888740][deepnova][debug] core: surface: initialise
+[10:03:47][0x71b1bb888740][deepnova][comment] core: handler: monitor ef0e5f48-83cb-4ce5-9950-3a9ff8e5a12c connected as HDMI-A-2
+[10:03:47][0x71b1bb888740][deepnova][comment] core: handler: monitor f8bda583-7e36-4abe-9d7d-50512c497a0b connected as DP-4
+[10:03:47][0x71b1bb888740][deepnova][comment] core: handler: monitor 52243da3-aaa8-4d50-8dcf-1e3ca51fd0aa connected as DP-5
+[10:03:47][0x71b1bb888740][deepnova][comment] core: handler: monitor a4ca31bc-b81c-45cd-9418-8e062de6611d connected as HDMI-A-1
+[10:03:47][0x71b1bb888740][deepnova][comment] grafic: window: open windowed (id#0)
+[10:04:37][0x71b1bb888740][deepnova][debug] core: surface: monitor ef0e5f48-83cb-4ce5-9950-3a9ff8e5a12c removed
+[10:04:37][0x71b1bb888740][deepnova][debug] core: surface: monitor f8bda583-7e36-4abe-9d7d-50512c497a0b removed
+[10:04:37][0x71b1bb888740][deepnova][debug] core: surface: monitor 52243da3-aaa8-4d50-8dcf-1e3ca51fd0aa removed
+[10:04:37][0x71b1bb888740][deepnova][debug] core: surface: monitor a4ca31bc-b81c-45cd-9418-8e062de6611d removed
+[10:04:37][0x71b1bb888740][deepnova][debug] core: surface: shutdown
+[10:04:47][0x7f254c7cb740][deepnova][debug] core: surface: initialise
+[10:04:47][0x7f254c7cb740][deepnova][comment] core: handler: monitor 02d02f9d-3df1-42c2-aa15-b38165101c5a connected as HDMI-A-2
+[10:04:47][0x7f254c7cb740][deepnova][comment] core: handler: monitor f9958d3d-0365-43b3-8e49-beaa44af0026 connected as DP-4
+[10:04:47][0x7f254c7cb740][deepnova][comment] core: handler: monitor a6deda36-c027-431f-9d0c-a30eba082bf8 connected as DP-5
+[10:04:47][0x7f254c7cb740][deepnova][comment] core: handler: monitor f4b792d4-0576-4a4f-a594-0ddf98da67a3 connected as HDMI-A-1
+[10:04:47][0x7f254c7cb740][deepnova][comment] grafic: window: open windowed (id#0)
+[10:05:37][0x7f254c7cb740][deepnova][debug] core: surface: monitor 02d02f9d-3df1-42c2-aa15-b38165101c5a removed
+[10:05:37][0x7f254c7cb740][deepnova][debug] core: surface: monitor f9958d3d-0365-43b3-8e49-beaa44af0026 removed
+[10:05:37][0x7f254c7cb740][deepnova][debug] core: surface: monitor a6deda36-c027-431f-9d0c-a30eba082bf8 removed
+[10:05:37][0x7f254c7cb740][deepnova][debug] core: surface: monitor f4b792d4-0576-4a4f-a594-0ddf98da67a3 removed
+[10:05:37][0x7f254c7cb740][deepnova][debug] core: surface: shutdown
+[10:05:52][0x7f16bc230740][deepnova][debug] core: surface: initialise
+[10:05:52][0x7f16bc230740][deepnova][comment] core: handler: monitor 6e34da91-e58f-48d3-8f7b-f1db1a541a90 connected as HDMI-A-2
+[10:05:52][0x7f16bc230740][deepnova][comment] core: handler: monitor 539f1b5f-4d59-41a6-81b2-9d815163d068 connected as DP-4
+[10:05:52][0x7f16bc230740][deepnova][comment] core: handler: monitor 577c4056-e8f7-4cec-95ca-59a1bc517be0 connected as DP-5
+[10:05:52][0x7f16bc230740][deepnova][comment] core: handler: monitor ff5d2bee-6a88-4123-a924-fe677d3ccb4f connected as HDMI-A-1
+[10:05:52][0x7f16bc230740][deepnova][comment] grafic: window: open windowed (id#0)
+[10:05:57][0x7f16bc230740][deepnova][debug] core: surface: monitor 6e34da91-e58f-48d3-8f7b-f1db1a541a90 removed
+[10:05:57][0x7f16bc230740][deepnova][debug] core: surface: monitor 539f1b5f-4d59-41a6-81b2-9d815163d068 removed
+[10:05:57][0x7f16bc230740][deepnova][debug] core: surface: monitor 577c4056-e8f7-4cec-95ca-59a1bc517be0 removed
+[10:05:57][0x7f16bc230740][deepnova][debug] core: surface: monitor ff5d2bee-6a88-4123-a924-fe677d3ccb4f removed
+[10:05:57][0x7f16bc230740][deepnova][debug] core: surface: shutdown

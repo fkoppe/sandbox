@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "monitor.h": "c",
+        "any": "c",
+        "complex": "c"
+    }
+}

@@ -4,6 +4,8 @@
 #include <dark/char/string_struct.h>
 #include <dark/stream/ostream_struct.h>
 
+#include <deep/deepnova.h>
+
 static const Dark_Library LIBRARY_SANDBOX= { "sandbox", DARK_VERSION_MAKE(0, 0, 1, 0), ___DARK_CONFIGURATION, DARK_CONSOLE_COLOR_EFG_BLUE };
 
 #undef DARK_LIBRARY
@@ -55,16 +57,27 @@ int main()
 
     Dark_Entropy entropy_pool = dark_entropy_seed();
 
-    Dark_Event_Handler* const event_handler = dark_event_handler_new(allocator, logger);;
+    Deep_Event_Queue* const event_queue = deep_event_queue_new(allocator, logger);
 
-    Dark_Window_Settings window_settings;
+    deep_handler_initialise(allocator, &entropy_pool, event_queue, logger);
+
+    Deep_Window_Settings window_settings;
     window_settings.title = dark_cstring_to_cbuffer_view("test window");
-    window_settings.width = 1920;
-    window_settings.height = 1080;
+    window_settings.file_drop_is = false;
+    window_settings.min.is = false;
+    window_settings.max.is = false;
 
-    Dark_Window* const window = dark_window_new(allocator, 0, window_settings, event_handler, logger);
+    Deep_Grafic_Extend extend = { .width = 1920, .height = 1080};
 
-    dark_window_open_windowed(window, true);
+    Deep_Window* const window = deep_window_new(allocator, 0, window_settings, event_queue, logger);
+
+    Deep_Window_Option_Array options;
+    options.data[DEEP_WINDOW_OPTION_RESIZE] = true;
+    options.data[DEEP_WINDOW_OPTION_VISIBLE] = true;
+    options.data[DEEP_WINDOW_OPTION_DECORATE] = true;
+    options.data[DEEP_WINDOW_OPTION_FOCUS] = true;
+
+    deep_window_open_windowed(window, options, extend);
     //dark_window_open_fullscreen(window);
 
     //-----GAMELOOP-----
@@ -75,42 +88,32 @@ int main()
 
     while(dark_stopwatch_s(stopwatch) < 5)
     {
-        dark_window_update(window);
-
         if(dark_stopwatch_s(stopwatch) > 1 && !done)
         {
             done = true;
             //dark_window_fullscreen(window);
         }
 
-        bool processed = false;
-        while(!processed)
+        while(deep_event_queue_next_is(event_queue))
         {
-            Dark_Event* const event = dark_event_handler_next(event_handler);
+            const Deep_Event event = deep_event_queue_next(event_queue);
 
-            if(NULL == event)
-            {
-                processed = true;
-            }
-            else
-            {
-                switch(event->type)
+            switch(event.type)
                 {
-                case DARK_EVENT_TYPE_SCROLLED:
+                case DEEP_EVENT_TYPE_SCROLLED:
                     break;
                     //DARK_PRINTF_DEBUG("scrolled %lf-%lf\n", event->data.scroll.x, event->data.scroll.y);
-                case DARK_EVENT_TYPE_CURSOR_MOVED:
+                case DEEP_EVENT_TYPE_CURSOR_MOVED:
                     break;
                     //DARK_PRINTF_DEBUG("moved %i-%i\n", event->data.position.x, event->data.position.y);
-                case DARK_EVENT_TYPE_KEY_REPEATED:
-                    int i = event->data.keyboard.key;
+                case DEEP_EVENT_TYPE_KEY_REPEATED:
+                    int i = event.data.keyboard.key;
                     DARK_PRINTF_DEBUG("key %i\n", i);
                     break;
 
                 default:
                     break;
                 }
-            }
         }
 
         dark_ostream_update(ostream);
@@ -120,11 +123,13 @@ int main()
 
     //------------------
 
-    dark_window_close(window);
+    deep_window_close(window);
 
-    dark_window_delete(window);
+    deep_window_delete(window);
 
-    dark_event_handler_delete(event_handler);
+    deep_handler_shutdown();
+
+    deep_event_queue_delete(event_queue);
 
     dark_logger_delete(logger);
 
